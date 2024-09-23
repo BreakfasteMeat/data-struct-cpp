@@ -75,16 +75,18 @@ public:
         add(num); // Same as add() since it appends at the end
     }
 
-    void removeAt(int pos) {
-        if (pos < 0 || pos >= size) {
+    int removeAt(int pos) {
+        int ret = arr[pos-1];
+		if (pos < 0 || pos >= size) {
             cout << "Index out of bounds!" << endl;
-            return;
+            return ret;
         }
 
         // Shift elements to the left
         for (int i = pos; i < size - 1; i++) {
             arr[i] = arr[i + 1];
         }
+        return ret;
         size--;
     }
 
@@ -100,7 +102,7 @@ public:
             for (int i = size; i < cap; i++) arr[i] = 0;
         }
 
-        // Shift elements to the right
+
         for (int i = size; i > pos; i--) {
             arr[i] = arr[i - 1];
         }
@@ -114,10 +116,13 @@ public:
         for (int i = 0; i < size; i++) {
             if (arr[i] == num) {
                 removeAt(i);
-                i--; // Adjust index after removal
+                i--; 
                 count++;
             }
         }
         return count;
     }
+    void reverse(){}
+    void sort(){
+	}
 };

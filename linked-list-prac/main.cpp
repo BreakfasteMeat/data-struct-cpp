@@ -1,8 +1,10 @@
 #include <iostream>
+#include <stdlib.h>
 #include "list.h"
 #include "linkedlist.h"
 #include "doublylinkedlist.h"
 #include "arraylist.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -79,6 +81,10 @@ int main(int argc, char** argv) {
 				cin>>x;
 				y = list->removeAll(x);
 				cout<<"Removed "<<y<<" Element/s"<<endl;
+				break;
+			case 'u':
+				cout<<"List has been reversed!"<<endl;
+				list->reverse();
 				break;
 //			case 's':
 //				cout<<"List Sorted"<<endl;

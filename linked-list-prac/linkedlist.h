@@ -104,7 +104,7 @@ class LinkedList : public List{
 			}
 			
 		}
-		void removeAt(int pos){
+		int removeAt(int pos){
 			node* curr = head;
 			if(pos == 1){
 				head = head->next;
@@ -187,6 +187,8 @@ class LinkedList : public List{
 //				
 //				cur = cur->next;
 //			}
+		}
+		void reverse(){
 		}
 		void sort(){
 		}
