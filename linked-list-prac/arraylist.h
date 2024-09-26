@@ -123,6 +123,8 @@ public:
         return count;
     }
     void reverse(){}
-    void sort(){
-	}
+    void sort(){}
+	void deleteList(){}
+	int retain(int num){}
+	int corner(int left, int right){}
 };

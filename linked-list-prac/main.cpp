@@ -86,6 +86,14 @@ int main(int argc, char** argv) {
 				cout<<"List has been reversed!"<<endl;
 				list->reverse();
 				break;
+			case 'X':
+				cout<<"List is now empty!"<<endl;
+				list->deleteList();
+				break;
+			case '=':
+				cout<<"Enter a number: ";
+				cin>>x;
+				cout<<"Removed "<<list->retain(x)<<" element/s"<<endl;
 //			case 's':
 //				cout<<"List Sorted"<<endl;
 //				list->sort();

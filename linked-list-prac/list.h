@@ -11,5 +11,10 @@ class List {
 	virtual int removeAll(int num) = 0;
 	virtual void reverse() = 0;
 	virtual void sort() = 0;
-	
+	virtual void deleteList() = 0;
+	virtual int retain(int num) = 0;
+	virtual int corner(int left, int right) = 0;
+	virtual int removeHead() = 0;
+	virtual int removeTail() = 0;
+
 };

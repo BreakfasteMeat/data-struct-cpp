@@ -1,0 +1,42 @@
+#include <iostream>
+#include "doublylinkedlist.h"
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	char Op;
+	List* list = new DoublyLinkedList();
+	int num, pos;
+	do{
+		cout<<"Enter Op: ";cin>>Op;
+		switch(Op){
+			case 'p':
+				list->print();
+			break;
+			case 'a':
+				cout<<"Add at head, tail, at [h,t,@]: ";
+				cin>>Op;
+				switch(Op){
+					case 'h':
+						cout<<"Enter a number: ";
+						cin>>num;
+						list->addHead(num);
+						break;
+					case 't':
+						cout<<"Enter a number: ";
+						cin>>num;
+						list->addTail(num);
+						break;
+					case '@':
+						cout<<"Enter a number: ";
+						cin>>num;
+						cout<<"Enter a position: ";
+						cin>>pos;
+						list->addAt(num,pos);
+						break;
+				}
+				
+		}
+	}while(Op != 'x');
+	return 0;
+}

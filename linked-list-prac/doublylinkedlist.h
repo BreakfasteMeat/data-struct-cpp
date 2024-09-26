@@ -10,6 +10,7 @@ class DoublyLinkedList : public List{
 	int size = 0;
 
 public:
+	
 	void add(int num){
 		dnode* n = new dnode();
 		n->next = 0;
@@ -26,6 +27,7 @@ public:
 		size++;
 	}
 	void print(){
+		cout<<endl<<endl<<"SIZE - "<<size<<endl;
 		dnode* curr = head;
 		cout<<"FROM HEAD: ";
 		while(curr){
@@ -176,7 +178,7 @@ public:
 	int removeAll(int num){
 		dnode* curr = head;
 		int ret = 0;
-		while(curr->next){
+		while(curr){
 			if(curr->elem == num){
 				ret++;
 				if(curr != head){
@@ -197,6 +199,7 @@ public:
 				curr = temp;
 				continue;
 			}
+			if(curr->next == 0) break;
 			curr = curr->next;
 		}
 		return ret;
@@ -211,5 +214,91 @@ public:
 		}
 	}
     void sort(){
+    	dnode* curr;
+    	while(curr){
+    		
+    		curr = curr->next;
+		}
 	}
+	void deleteList(){
+		dnode* curr = head;
+		while(curr){
+			if(curr == tail){
+				delete curr;
+				break;
+			}
+			curr = curr->next;
+			
+			delete curr->prev;
+		}
+		head = 0;
+		size = 0;
+		tail = 0;
+	}
+	int retain(int num){
+		int ctr = 0;
+		dnode* curr = head;
+		dnode* lastCheck = NULL;
+		
+		while(curr){
+			if(curr->elem >= num){
+
+				if(lastCheck == NULL){
+					head = curr;
+					head->prev = 0;
+				} else if(curr->prev != lastCheck){
+					lastCheck->next = curr;
+					curr->prev = lastCheck;
+				}
+				lastCheck = curr;
+			} else ctr++;
+			if(curr->next == 0)break;
+			curr = curr->next;
+		}
+		lastCheck->next = 0;
+		tail = lastCheck;
+		size -= ctr;
+		return ctr;
+	}
+	
+	int corner(int left, int right){
+		dnode* leftNode = NULL;
+		dnode* rightNode = NULL;
+		
+		for(int i = 1;i < left;i++){
+			if(leftNode == NULL) 
+				leftNode = head;
+			else
+				leftNode = leftNode->next;
+		}
+		
+		for(int i = 1;i < right;i++){
+			if(leftNode == NULL)
+				leftNode = tail;
+			else 
+				leftNode = leftNode->prev;
+		}
+		
+		if(!leftNode){
+			head = rightNode;
+		}
+		if(!rightNode){
+			tail = leftNode;
+		}
+		leftNode->next = rightNode;
+		rightNode->prev = leftNode;
+	}
+	int removeHead(){
+		int ret = head->elem;
+		head = head->next;
+		delete head->prev;
+		return ret;
+	}
+	int removeTail(){
+		int ret = tail->elem;
+		tail = tail->prev;
+		delete tail->next;
+		return ret;
+	}
+	
 };

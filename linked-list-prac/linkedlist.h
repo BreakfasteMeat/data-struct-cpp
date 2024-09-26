@@ -13,6 +13,7 @@ class LinkedList : public List{
 			node* n = new node();
 			n->next = 0;
 			n->elem = num;
+			
 			if(size == 0){
 				head = n;
 				tail = n;
@@ -188,8 +189,10 @@ class LinkedList : public List{
 //				cur = cur->next;
 //			}
 		}
-		void reverse(){
+	    void reverse(){
 		}
-		void sort(){
-		}
+	    void sort(){}
+		void deleteList(){}
+		int retain(int num){}
+		int corner(int left, int right){}
 };
