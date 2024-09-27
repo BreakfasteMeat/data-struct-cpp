@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 				list->print();
 			break;
 			case 'a':
-				cout<<"Add at head, tail, at [h,t,@]: ";
+				cout<<"Add head, tail, or at [h,t,@]: ";
 				cin>>Op;
 				switch(Op){
 					case 'h':
@@ -35,7 +35,24 @@ int main(int argc, char** argv) {
 						list->addAt(num,pos);
 						break;
 				}
-				
+				break;
+			case 'r':
+				cout<<"Remove head, tail, or at [h,t,@]: ";
+				cin>>Op;
+				switch(Op){
+					case 'h':
+						cout<<"Removed "<<list->removeHead();
+						break;
+					case 't':
+						cout<<"Removed "<<list->removeTail();
+						break;
+					case '@':
+						cout<<"Enter a position: ";
+						cin>>pos;
+						cout<<"Removed "<<list->removeAt(pos);
+						break;
+				}
+				cout<<endl;
 		}
 	}while(Op != 'x');
 	return 0;
