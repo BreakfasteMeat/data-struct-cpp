@@ -9,4 +9,5 @@ class List{
 	virtual int removeAt(int pos) = 0;
 	virtual int removeNum(int num) = 0;
 	virtual int clearList() = 0;
+	virtual void rotate(int num) = 0;
 };

@@ -53,6 +53,20 @@ int main(int argc, char** argv) {
 						break;
 				}
 				cout<<endl;
+				break;
+			case 'R':
+				cout<<"Enter number to remove: ";
+				cin>>num;
+				cout<<"Removed "<<list->removeNum(num)<<" Element/s"<<endl;
+				break;
+			case 'X':
+				cout<<"Removed "<<list->clearList()<<" Element/s"<<endl;
+				break;
+			case '1':
+				cout<<"Enter number to rotate: ";
+				cin>>num;
+				list->rotate(num);
+				break;
 		}
 	}while(Op != 'x');
 	return 0;
