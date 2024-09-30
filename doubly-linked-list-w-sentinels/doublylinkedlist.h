@@ -140,7 +140,6 @@ public:
 		tail->prev = curr->prev;
 		tail->prev->next = tail;
 		head->next->prev = head;
-		
 	}
 	
 };
