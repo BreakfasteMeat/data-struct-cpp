@@ -10,12 +10,13 @@ class DoublyLinkedList : public List{
 
 public:
 	DoublyLinkedList(){
-		head = new node();
-		tail = new node();
+		head = (node *)new sentinelNode;
+		tail = (node *)new sentinelNode;
 		head->next = tail;
 		tail->prev = head;
 	}
 	void print(){
+		
 		if(head->next == tail){
 			cout<<"[EMPTY]"<<endl;
 			return;

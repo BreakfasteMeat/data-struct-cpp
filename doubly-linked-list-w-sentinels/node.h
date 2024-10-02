@@ -3,3 +3,6 @@ struct node{
 	node* next;
 	node* prev;
 };
+struct sentinelNode {
+    node *next, *prev;
+};
