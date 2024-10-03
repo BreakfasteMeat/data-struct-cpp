@@ -67,6 +67,10 @@ int main(int argc, char** argv) {
 				cin>>num;
 				list->rotate(num);
 				break;
+			case '=':
+				cout<<"Enter number: ";
+				cin>>num;
+				list->retain(num);
 		}
 	}while(Op != 'x');
 	return 0;

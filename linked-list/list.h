@@ -10,4 +10,5 @@ class List{
 	virtual int removeNum(int num) = 0;
 	virtual int clearList() = 0;
 	virtual void rotate(int num) = 0;
+	virtual int retain(int num) = 0;
 };

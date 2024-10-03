@@ -170,6 +170,36 @@ public:
 		}
 		tail->next = 0;
 	}
+	int retain(int num){
+		int ret = 0;
+		node* curr = head;
+		node* lastCheck = 0;
+		while(curr){
+			if(curr->elem >= num){
+				if(!lastCheck){
+					head = curr;
+					lastCheck = curr;
+					
+				} else {
+					lastCheck->next = curr;
+					lastCheck = curr;
+					
+				}
+			}
+			
+			curr = curr->next;
+		}
+		if(lastCheck == 0){
+			head = 0;
+			tail = 0;
+			return 0;
+		}
+		
+		tail = lastCheck;
+		tail->next = 0;
+		
+	}
+	
 
 	
 };
