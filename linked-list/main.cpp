@@ -71,6 +71,9 @@ int main(int argc, char** argv) {
 				cout<<"Enter number: ";
 				cin>>num;
 				list->retain(num);
+			case 'f':
+				list->flip();
+				cout<<"Flipped list"<<endl;
 		}
 	}while(Op != 'x');
 	return 0;

@@ -199,7 +199,32 @@ public:
 		tail->next = 0;
 		
 	}
+	void flip(){
+//		node* curr = head->next;
+//		node* prev = head;
+//		tail = head;
+//		while(curr){
+//			head = curr;
+//			curr = curr->next;
+//			head->next = prev;
+//			prev = head;
+//		}
+	//	tail->next = 0;
+	if (head == NULL) return;
+	node * temp = NULL;
+	node * cur = head;
+	while (cur != tail) {
+		node *curNext = cur->next;
+		cur->next = temp;
+		temp = cur;
+		cur = curNext;
+	}
+	cur->next = temp;
 	
+	temp = head;
+	head = tail;
+	tail = temp;
+	}
 
 	
 };

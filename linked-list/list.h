@@ -11,4 +11,5 @@ class List{
 	virtual int clearList() = 0;
 	virtual void rotate(int num) = 0;
 	virtual int retain(int num) = 0;
+	virtual void flip() = 0;
 };

@@ -7,6 +7,21 @@ class DoublyLinkedList : public List{
 	node* head;
 	node* tail;
 	int size;
+	void remove_node(node* n){
+		node* pred = n->prev;
+		node* succ = n->next;
+		pred->next = n->next;
+		succ->prev = n->prev;
+		size--;
+		delete n;
+	}
+	void addBetween(node* pred, node* n, node* succ){
+		pred->next = n;
+		succ->prev = n;
+		n->next = succ;
+		n->prev = pred;
+		size++;
+	}
 
 public:
 	DoublyLinkedList(){
@@ -37,19 +52,8 @@ public:
 		}
 		cout<<endl;
 	}
-	void addBetween(node* pred, node* n, node* succ){
-		pred->next = n;
-		succ->prev = n;
-		n->next = succ;
-		n->prev = pred;
-		size++;
-	}
-	void remove_node(node*pred, node*n, node*succ){
-		pred->next = n->next;
-		succ->prev = n->prev;
-		size--;
-		delete n;
-	}
+	
+	
 	void addHead(int num){
 		node* n = new node();
 		n->elem = num;
@@ -79,12 +83,12 @@ public:
 	}
 	int removeHead(){
 		int ret = head->next->elem;
-		remove_node(head,head->next,head->next->next);
+		remove_node(head->next);
 		return ret;
 	}
 	int removeTail(){
 		int ret = tail->prev->elem;
-		remove_node(tail->prev->prev,tail->prev,tail);
+		remove_node(tail->prev);
 		return ret;
 	}
 	int removeAt(int pos){
@@ -101,7 +105,7 @@ public:
 			}
 		}
 		int ret = curr->elem;
-		remove_node(curr->prev,curr,curr->next);
+		remove_node(curr);
 		return ret;
 		
 	}
@@ -111,7 +115,7 @@ public:
 		while(curr != tail){
 			if(curr->elem == num){
 				node* temp = curr->next;
-				remove_node(curr->prev,curr,curr->next);
+				remove_node(curr);
 				curr = temp;
 				ctr++;	
 			} else
@@ -126,7 +130,7 @@ public:
 		while(curr != tail){
 			toDelete = curr;
 			curr = curr->next;
-			remove_node(toDelete->prev,toDelete,toDelete->next);
+			remove_node(toDelete);
 		}
 		return ret;	
 	}
@@ -142,5 +146,13 @@ public:
 		tail->prev->next = tail;
 		head->next->prev = head;
 	}
-	
+	~DoublyLinkedList(){
+		cout<<"Deleting myself from here."<<endl;
+		node* curr = head;
+		while(curr != tail){
+			curr = curr->next;
+			free(curr->prev);
+		}
+		free(curr);
+	}
 };
