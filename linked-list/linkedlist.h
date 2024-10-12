@@ -225,6 +225,22 @@ public:
 	head = tail;
 	tail = temp;
 	}
+	
+	double findMid(){
+		node* fast = head;
+		node* slow = head;
+		while(fast){
+			if(fast == tail){
+				return slow->elem;
+			} else if(fast->next == tail){
+				return (slow->next->elem + slow->elem) / 2.0;
+			}
+			
+			fast = fast->next->next;
+			slow = slow->next;
+		}
+		return -1;
+	}
 
 	
 };

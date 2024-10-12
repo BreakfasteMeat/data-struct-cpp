@@ -74,6 +74,8 @@ int main(int argc, char** argv) {
 			case 'f':
 				list->flip();
 				cout<<"Flipped list"<<endl;
+			case 'm':
+				cout<<"Middle of list is: "<<list->findMid()<<endl;
 		}
 	}while(Op != 'x');
 	return 0;

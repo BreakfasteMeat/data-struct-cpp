@@ -12,4 +12,5 @@ class List{
 	virtual void rotate(int num) = 0;
 	virtual int retain(int num) = 0;
 	virtual void flip() = 0;
+	virtual double findMid() = 0;
 };
