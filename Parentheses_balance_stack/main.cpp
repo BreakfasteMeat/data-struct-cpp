@@ -26,10 +26,11 @@ int main(int argc, char** argv) {
 
 bool isBalanced(string parenth){
 	int size = 0;
-	char* stack = (char*)calloc(20,sizeof(char));
-
+	char* stack = (char*)calloc(20,sizeof(char));//STACK
+	
 	for(int i = 0;i < parenth.length();i++){
 		char curr = parenth[i];
+		
 		if(curr == '(' || curr == '[' ||curr == '{' ){
 			stack[size++] = curr;
 		} else {
@@ -40,7 +41,7 @@ bool isBalanced(string parenth){
 		}		
 	}
 	if(size){
-		cout<<"Stack not empty "<<size<<endl;
+		//cout<<"Stack not empty "<<size<<endl;
 		return false;
 	}
 	return true;
